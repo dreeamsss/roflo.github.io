@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const mainBtn = document.querySelector(".main__btn");
-    console.log(mainBtn)
-
     mainBtn.addEventListener("click", function() {
         promise.then(data => {
             const randomInt = random(0, data.length - 1);

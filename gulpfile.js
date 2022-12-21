@@ -80,11 +80,13 @@ const clean = () => {
 
 const  scripts = async() => {
 	src('./src/js/vendor/**.js')
+		.pipe(uglify())
 		.pipe(concat('vendor.js'))
 		.on("error", notify.onError())
 		.pipe(dest('./app/js/'));
   	return src(
     ['./src/js/functions/**.js', './src/js/components/**.js', './src/js/main.js'])
+	.pipe(uglify())	
     .pipe(sourcemaps.init())
 	.pipe(babel({
 			presets: ['@babel/env']
